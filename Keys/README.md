@@ -49,3 +49,49 @@ NX
 
 XX
 >the key must exist before it's set
+
+## Key Expiration
+
+* Expiration times can be set
+* Expiration can be changed by the user
+* Expiration can be removed
+
+### TTL Commands
+
+#### SET
+
+* EXPIRE key seconds
+* EXPIREAT key timestamp
+* PEXPIRE key milliseconds
+* PEXPIREAT key milliseconds-timestamp
+
+#### Examine
+
+* TTL key
+* PTTL key
+
+```bash
+127.0.0.1:6379> set seat-hold Row:A:Seat:4 PX 50000
+OK
+127.0.0.1:6379> set seat-hold Row:A:Seat:4 EX 50
+OK
+127.0.0.1:6379> get seat-hold
+"Row:A:Seat:4"
+127.0.0.1:6379> pexpire seat-hold 1
+(integer) 1
+127.0.0.1:6379> get seat-hold
+(nil)
+127.0.0.1:6379> set seat-hold Row:A:Seat:4 ex 50
+OK
+127.0.0.1:6379> ttl seat-hold
+(integer) 47
+127.0.0.1:6379> ttl seat-hold
+(integer) 39
+127.0.0.1:6379> pttl seat-hold
+(integer) 35812
+127.0.0.1:6379> persist seat-hold
+(integer) 1
+127.0.0.1:6379> ttl seat-hold
+(integer) -1
+127.0.0.1:6379>
+```
