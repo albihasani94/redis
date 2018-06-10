@@ -44,7 +44,8 @@ OK
 > may be used before using SET to verify existence
 
 NX
-> they key does not exist before it's set
-> the second time the key is left unchanges
+> they key does not exist before it's set.
+> the second time the key is left unchanged
+
 XX
 >the key must exist before it's set
