@@ -11,13 +11,13 @@ Strings are the simplest data type that can be associated with the key.
 
 Internally, Redis stores the encoding of the value
 
-* > DATATYPE: STRING
-* > ENCODING: INT
+> DATATYPE: STRING;
+> ENCODING: INT
 
 ### Manipulating Strings
 
-* DECRBY key decrement
-* INCRBY key increment
+* ```DECRBY key decrement```
+* ```INCRBY key increment```
 
 ```bash
 docker exec -it redis_redis_1 redis-cli
