@@ -14,38 +14,46 @@ Ordered collection of unique strings
 
 ### Adding elements
 
-* ZADD KEY [NX|XX] [CH] [INCR] SCORE MEMBER [SCORE MEMBER ...]
+  ```ZADD KEY [NX|XX] [CH] [INCR] SCORE MEMBER [SCORE MEMBER ...]```
 
 ### Get the elements of a set
 
-* ZRANGE key start stop [WITHSCORES]
-* ZREVRANGE key start stop [WITHSCORES]
-* ZRANGEBYSCORE key min max [WITHSCORES] [LIMIT offset count]
-* ZRANGEBYLEX key min max [LIMIT offset count]
+```ZRANGE key start stop [WITHSCORES]```
+
+```ZREVRANGE key start stop [WITHSCORES]```
+
+```ZRANGEBYSCORE key min max [WITHSCORES] [LIMIT offset count]```
+
+```ZRANGEBYLEX key min max [LIMIT offset count]```
 
 ### Get the score and rank of an element
 
-* ZRANK key member
-* ZREVRANK key member
-* ZSCORE key member
+```ZRANK key member```
+
+```ZREVRANK key member```
+
+```ZSCORE key member```
 
 ### Count the number of members between a range of scores
 
-* ZCOUNT key min max
+```ZCOUNT key min max```
 
 ### Remove members from set
 
-* ZREM key member [member ...]
-* ZREMRANGEBYLEX
-* ZREMRANGEBYRANK
-* ZREMRANGEBYSCORE
+```ZREM key member [member ...]```
+
+```ZREMRANGEBYLEX```
+
+```ZREMRANGEBYRANK```
+
+```ZREMRANGEBYSCORE```
 
 ### Set based operations
 
 * you can only store the result in another set
 * only intersection and union
-* ZINTERSTORE destination numkeys key [key ...] [WEIGHTS weight [weight]] [AGGREGATE SUM|MIN|MAX]
-* ZUNIONSTORE destination numkeys key [key ...] [WEIGHTS weight [weight]] [AGGREGATE SUM|MIN|MAX]
+* ```ZINTERSTORE destination numkeys key [key ...] [WEIGHTS weight [weight]] [AGGREGATE SUM|MIN|MAX]```
+* ```ZUNIONSTORE destination numkeys key [key ...] [WEIGHTS weight [weight]] [AGGREGATE SUM|MIN|MAX]```
 
 ## Use cases
 
