@@ -14,46 +14,63 @@ Ordered collection of unique strings
 
 ### Adding elements
 
-  ```ZADD KEY [NX|XX] [CH] [INCR] SCORE MEMBER [SCORE MEMBER ...]```
+```bash
+
+ZADD KEY [NX|XX] [CH] [INCR] SCORE MEMBER [SCORE MEMBER ...]
+
+```
 
 ### Get the elements of a set
 
-```ZRANGE key start stop [WITHSCORES]```
+```bash
 
-```ZREVRANGE key start stop [WITHSCORES]```
+ZRANGE key start stop [WITHSCORES]
+ZREVRANGE key start stop [WITHSCORES]
+ZRANGEBYSCORE key min max [WITHSCORES] [LIMIT offset count]
+ZRANGEBYLEX key min max [LIMIT offset count]
 
-```ZRANGEBYSCORE key min max [WITHSCORES] [LIMIT offset count]```
-
-```ZRANGEBYLEX key min max [LIMIT offset count]```
+```
 
 ### Get the score and rank of an element
 
-```ZRANK key member```
+```bash
 
-```ZREVRANK key member```
+ZRANK key member
+ZREVRANK key member
+ZSCORE key member
 
-```ZSCORE key member```
+```
 
 ### Count the number of members between a range of scores
 
-```ZCOUNT key min max```
+```bash
+
+ZCOUNT key min max
+
+```
 
 ### Remove members from set
 
-```ZREM key member [member ...]```
+```bash
 
-```ZREMRANGEBYLEX```
+ZREM key member [member ...]
+ZREMRANGEBYLEX
+ZREMRANGEBYRANK
+ZREMRANGEBYSCORE
 
-```ZREMRANGEBYRANK```
-
-```ZREMRANGEBYSCORE```
+```
 
 ### Set based operations
 
 * you can only store the result in another set
 * only intersection and union
-* ```ZINTERSTORE destination numkeys key [key ...] [WEIGHTS weight [weight]] [AGGREGATE SUM|MIN|MAX]```
-* ```ZUNIONSTORE destination numkeys key [key ...] [WEIGHTS weight [weight]] [AGGREGATE SUM|MIN|MAX]```
+
+```bash
+
+ZINTERSTORE destination numkeys key [key ...] [WEIGHTS weight [weight]] [AGGREGATE SUM|MIN|MAX]
+ZUNIONSTORE destination numkeys key [key ...] [WEIGHTS weight [weight]] [AGGREGATE SUM|MIN|MAX]
+
+```
 
 ## Use cases
 
@@ -61,6 +78,7 @@ Ordered collection of unique strings
 * Priority Queue
 
 ```bash
+
 127.0.0.1:6379> zadd "stadiums:Serie A" 1 "San Siro"
 (integer) 1
 127.0.0.1:6379> zadd "stadiums:Serie A" 5 "San Paolo" 3 "Allianz Arena" 2 "Olimpico" 4 "Luigi Ferraris"
@@ -198,4 +216,5 @@ Ordered collection of unique strings
 2) "c"
 3) "ab"
 127.0.0.1:6379>
+
 ```
