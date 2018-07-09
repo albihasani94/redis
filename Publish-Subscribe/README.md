@@ -78,9 +78,13 @@ Reading messages... (press Ctrl-C to quit)
 
 - PSUBSCRIBE pattern [pattern]
   - ?
-  - *
+  > h?llo subscribes to hello, hallo and hxllo
+  - \*
+  > h*llo subscribes to hllo and heeeello
   - [...]
+  > h[ae]llo subscribes to hello and hallo, but not hillo
   - ^
+  > ^hell subscribes to hell but not hel
 
 ### Client 1 #2
 
